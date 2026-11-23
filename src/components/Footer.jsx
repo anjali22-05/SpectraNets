@@ -10,7 +10,8 @@ import {
   Globe, 
   Building2,
   MapPin,
-  ArrowUpRight
+  ArrowUpRight,
+  Mail,
 } from 'lucide-react';
 import { companyInfo } from '../data/contentData';
 import { servicesData } from '../data/servicesData';
@@ -198,6 +199,10 @@ export default function Footer({ onSelectService }) {
                 >
                   <Phone className="w-4 h-4 text-[#2684F7]" />
                   <span>{companyInfo.contactPhone}</span>
+                </a>
+                <a href={companyInfo.emailUrl} className="flex items-center gap-2 text-sm font-semibold text-[#00D2FF] hover:underline break-all">
+                  <Mail className="w-4 h-4 shrink-0 text-[#2684F7]" />
+                  {companyInfo.contactEmail}
                 </a>
               </div>
 

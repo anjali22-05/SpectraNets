@@ -93,6 +93,66 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Responsive Spectranets quick support chat */
+.business-chat-window {
+  display: flex;
+  flex-direction: column;
+  width: min(24rem, calc(100vw - 2rem));
+  height: min(36rem, calc(100dvh - 7rem));
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 24px 70px -24px rgba(7, 27, 73, 0.42);
+  transform-origin: bottom right;
+  transform: translateY(0.75rem) scale(0.96);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+.business-chat-window-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.business-chat-messages {
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+
+.chat-typing-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: #94a3b8;
+  animation: chatTyping 1s infinite ease-in-out;
+}
+
+.chat-typing-dot-delay-1 { animation-delay: 120ms; }
+.chat-typing-dot-delay-2 { animation-delay: 240ms; }
+
+@keyframes chatTyping {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.55; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .business-chat-window {
+    width: calc(100vw - 2rem);
+    height: min(34rem, calc(100dvh - 6.5rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .business-chat-window,
+  .chat-typing-dot {
+    animation: none;
+    transition: none;
+  }
+}
+
 /* Badge styling */
 .enterprise-pill {
   display: inline-flex;

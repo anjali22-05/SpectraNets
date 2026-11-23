@@ -11,6 +11,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import ChatwootWidget from './components/ChatwootWidget';
+import BusinessChatbot from './components/BusinessChatbot';
 
 export default function App() {
   const [selectedServicePreload, setSelectedServicePreload] = useState('Managed Internet Leased Line');
@@ -82,6 +83,9 @@ export default function App() {
 
       {/* Live customer support */}
       <ChatwootWidget />
+
+      {/* Quick answers for business connectivity questions */}
+      <BusinessChatbot />
     </div>
   );
 }

@@ -203,6 +203,10 @@ export default function ContactSection({ selectedServicePreload }) {
                   <strong className="text-[#071B49] block text-base font-bold">Spectranets</strong>
                   <div className="font-medium text-slate-800">A 64, Sector 63, Noida, Uttar Pradesh – 201301, India</div>
                 </address>
+                <a href={companyInfo.emailUrl} className="mt-3 inline-flex items-center gap-2 pl-7 text-sm font-semibold text-[#0756D9] hover:text-[#071B49] hover:underline">
+                  <Mail className="h-4 w-4" />
+                  {companyInfo.contactEmail}
+                </a>
               </div>
 
               <div className="pt-2 pl-7">
@@ -480,6 +484,7 @@ export default function ContactSection({ selectedServicePreload }) {
                     <div><strong>Location:</strong> {formData.city}</div>
                     <div><strong>Corporate Office:</strong> {companyInfo.address}</div>
                     <div><strong>Direct Hotline:</strong> {companyInfo.contactPhone}</div>
+                    <div><strong>Email:</strong> <a href={companyInfo.emailUrl} className="hover:underline">{companyInfo.contactEmail}</a></div>
                   </div>
 
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">

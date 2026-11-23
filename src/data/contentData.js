@@ -3,6 +3,8 @@ export const companyInfo = {
   tagline: "Dedicated Internet Leased Line • SIP Trunking • Managed Wi-Fi, Cloud & Security",
   topTagline: "Dedicated Internet Leased Line • SIP Trunking • Managed Wi-Fi, Cloud & Security",
   contactPhone: "9891406594",
+  contactEmail: "info@spectranets.in",
+  emailUrl: "mailto:info@spectranets.in",
   formattedPhone: "+91 98914 06594",
   whatsappUrl: "https://wa.me/919891406594?text=Hello%20Spectranets,%20I%20would%20like%20to%20enquire%20about%20enterprise%20connectivity%20services%20for%20my%20business.",
   callUrl: "tel:+919891406594",
