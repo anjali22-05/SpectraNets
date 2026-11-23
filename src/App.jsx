@@ -10,6 +10,7 @@ import AboutUs from './components/AboutUs';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import ChatwootWidget from './components/ChatwootWidget';
 
 export default function App() {
   const [selectedServicePreload, setSelectedServicePreload] = useState('Managed Internet Leased Line');
@@ -78,6 +79,9 @@ export default function App() {
 
       {/* Floating Action Buttons */}
       <FloatingActions />
+
+      {/* Live customer support */}
+      <ChatwootWidget />
     </div>
   );
 }

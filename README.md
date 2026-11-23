@@ -69,6 +69,19 @@ This website is engineered strictly for the **B2B (Business-to-Business)** enter
 
 ## 📦 How to Run
 
+### Chatwoot live chat
+
+Create a **Website** inbox in Chatwoot and copy its Website Token. For Chatwoot Cloud, the base URL is `https://app.chatwoot.com`; for a self-hosted instance, use your Chatwoot domain. Set these variables in a local `.env` file (see `.env.example`) and in your hosting provider's build environment:
+
+```env
+VITE_CHATWOOT_BASE_URL=https://app.chatwoot.com
+VITE_CHATWOOT_WEBSITE_TOKEN=your_website_inbox_token
+```
+
+Restart the Vite dev server after changing `.env`. Vite embeds `VITE_` values into the client bundle, so use only the public Website Token here, never an API access token. When configured, the Chatwoot support bubble appears on the site. The existing WhatsApp action remains available separately.
+
+The launcher is branded **Talk to Spectranets**, uses a business connectivity welcome message, and opens on the left to keep clear of the call and WhatsApp buttons. The widget also sends the current page URL and title as contact custom attributes so the support team can see where a visitor started the conversation. To finish matching the site, open the Website inbox settings in Chatwoot and set the widget color to `#0756D9`, the header title to **Spectranets Business Support**, and the welcome message / availability text for your team's actual support hours. Chatwoot's widget appearance controls are managed in the inbox and should be configured there.
+
 ### Development Server:
 ```bash
 npm run dev
