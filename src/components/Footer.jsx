@@ -6,13 +6,13 @@ import {
   ChevronRight, 
   ArrowUp, 
   Linkedin, 
-  Twitter, 
   Globe, 
   Building2,
   MapPin,
   ArrowUpRight,
   Mail,
 } from 'lucide-react';
+import { Instagram } from './Icons';
 import { companyInfo } from '../data/contentData';
 import { servicesData } from '../data/servicesData';
 
@@ -79,7 +79,7 @@ export default function Footer({ onSelectService }) {
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/spectra-nets/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#0756D9] flex items-center justify-center text-gray-300 hover:text-white transition-colors"
@@ -88,16 +88,18 @@ export default function Footer({ onSelectService }) {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://www.instagram.com/spectra_nets/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#0756D9] flex items-center justify-center text-gray-300 hover:text-white transition-colors"
-                aria-label="Twitter"
+                aria-label="Instagram"
               >
-                <Twitter className="w-4 h-4" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="#home"
+                href="https://spectranets.in/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#0756D9] flex items-center justify-center text-gray-300 hover:text-white transition-colors"
                 aria-label="Website"
               >

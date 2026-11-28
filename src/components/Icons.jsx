@@ -38,6 +38,14 @@ export const MessageSquare = createIcon(
   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 );
 
+export const Instagram = createIcon(
+  <>
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+  </>
+);
+
 export const Menu = createIcon(
   <>
     <line x1="4" x2="20" y1="12" y2="12" />

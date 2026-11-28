@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { MessageCircle, Send, X, Headphones } from 'lucide-react';
+import { servicesData } from '../data/servicesData';
 
-const suggestions = ['What services do you offer?', 'How can I get a business internet quote?', 'Do you provide support for multiple branches?'];
+const suggestions = [
+  'Are you looking for commercial connectivity?',
+  'Are you looking for home internet?',
+  'Are you looking for enterprise connectivity?',
+  'What services do you offer?',
+  'How can I get a business internet quote?',
+  'Do you provide support for multiple branches?',
+];
 
 const responses = [
   {
@@ -15,6 +23,14 @@ const responses = [
   {
     match: /branch|multi.?site|multiple location|locations/i,
     reply: 'Yes. We support multi-branch connectivity with managed internet, SD-WAN, secure site-to-site links and centralized support. Tell us how many locations you need to connect.',
+  },
+  {
+    match: /home|residential/i,
+    reply: 'Spectranets focuses on commercial and enterprise connectivity rather than home internet. If you are looking for a business or office connection, tell us about your location and requirements.',
+  },
+  {
+    match: /commercial|enterprise|business/i,
+    reply: 'Yes, Spectranets provides commercial and enterprise connectivity, including dedicated leased lines, managed internet, SD-WAN, cloud connectivity and security. Which service or location would you like help with?',
   },
   {
     match: /support|help|contact|speak|call|phone/i,
@@ -120,6 +136,12 @@ export default function BusinessChatbot() {
                   {suggestion}
                 </button>
               ))}
+              <p className="px-1 pt-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">Our services</p>
+              {servicesData.map((service) => (
+                <button key={service.id} type="button" onClick={() => sendMessage(`Tell me about ${service.title}`)} className="block w-full rounded-xl border border-blue-100 bg-white px-3 py-2 text-left text-xs font-medium text-[#0756D9] transition hover:border-blue-300 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
+                  {service.title}
+                </button>
+              ))}
             </div>
           )}
         </div>
@@ -148,9 +170,10 @@ export default function BusinessChatbot() {
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
         aria-label={isOpen ? 'Close Spectranets chat' : 'Open Spectranets chat'}
-        className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#0756D9] to-[#2684F7] text-white shadow-xl shadow-blue-900/25 ring-2 ring-white transition duration-200 hover:scale-105 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+        className={`group relative flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#0756D9] to-[#2684F7] px-3 text-white shadow-xl shadow-blue-900/25 ring-2 ring-white transition duration-200 hover:scale-105 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 ${isOpen ? 'w-11' : 'w-auto'}`}
       >
         {isOpen ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
+        {!isOpen && <span className="whitespace-nowrap text-xs font-semibold">Help</span>}
         {!isOpen && <span className="absolute -right-1 -top-1 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-400" />}
       </button>
     </div>
