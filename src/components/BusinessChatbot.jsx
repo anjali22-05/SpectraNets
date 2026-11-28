@@ -69,7 +69,7 @@ export default function BusinessChatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 sm:bottom-7 sm:right-7">
+    <div className="fixed bottom-24 right-3 z-[60] flex flex-col items-end gap-3 sm:bottom-28 sm:right-6">
       <section
         aria-label="Spectranets business chat"
         aria-hidden={!isOpen}
@@ -148,9 +148,9 @@ export default function BusinessChatbot() {
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
         aria-label={isOpen ? 'Close Spectranets chat' : 'Open Spectranets chat'}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#0756D9] to-[#2684F7] text-white shadow-xl shadow-blue-900/25 ring-4 ring-white transition duration-200 hover:scale-105 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+        className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#0756D9] to-[#2684F7] text-white shadow-xl shadow-blue-900/25 ring-2 ring-white transition duration-200 hover:scale-105 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
       >
-        {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        {isOpen ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         {!isOpen && <span className="absolute -right-1 -top-1 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-400" />}
       </button>
     </div>

@@ -53,17 +53,8 @@ export default function Navbar({ onOpenContact }) {
   ];
 
   const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const navOffset = 90;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-      });
-    }
+    // Let the browser follow the anchor href so mobile taps consistently reach
+    // the requested section, even while the menu is closing.
     setMobileMenuOpen(false);
   };
 
