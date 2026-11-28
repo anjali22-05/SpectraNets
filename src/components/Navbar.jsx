@@ -54,9 +54,10 @@ export default function Navbar({ onOpenContact }) {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
+      // Scroll before closing the dropdown so mobile browsers do not cancel
+      // the interaction while the fixed menu is being removed from the page.
       const navOffset = 90;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
@@ -65,6 +66,7 @@ export default function Navbar({ onOpenContact }) {
         behavior: 'smooth'
       });
     }
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -197,7 +199,7 @@ export default function Navbar({ onOpenContact }) {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-2 shadow-[0_24px_40px_-24px_rgba(7,27,73,0.3)]">
+          <nav aria-label="Mobile navigation" className="xl:hidden relative z-10 max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-2 shadow-[0_24px_40px_-24px_rgba(7,27,73,0.3)]">
             {/* Mobile Header with Logo */}
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-200">
               <img 
@@ -266,7 +268,7 @@ export default function Navbar({ onOpenContact }) {
                 {companyInfo.contactEmail}
               </a>
             </div>
-          </div>
+          </nav>
         )}
       </div>
     </header>

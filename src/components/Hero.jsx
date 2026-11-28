@@ -115,7 +115,7 @@ export default function Hero() {
             </div>
 
             {/* Verified Enterprise Assurance */}
-            <div className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-gray-400">
+            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-3 text-xs text-gray-400">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#00D2FF]" />
                 Zero Consumer Contention

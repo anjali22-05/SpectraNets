@@ -21,6 +21,31 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+}
+
+/* Keep section headings visible below the fixed navigation on every screen. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 640px) {
+  section[id] {
+    scroll-margin-top: 5.25rem;
   }
 }
 
