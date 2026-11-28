@@ -56,14 +56,12 @@ export default function Navbar({ onOpenContact }) {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
-      // Scroll before closing the dropdown so mobile browsers do not cancel
-      // the interaction while the fixed menu is being removed from the page.
       const navOffset = 90;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
       });
     }
     setMobileMenuOpen(false);
@@ -199,7 +197,7 @@ export default function Navbar({ onOpenContact }) {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <nav aria-label="Mobile navigation" className="xl:hidden relative z-10 max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-2 shadow-[0_24px_40px_-24px_rgba(7,27,73,0.3)]">
+          <nav aria-label="Mobile navigation" className="xl:hidden fixed inset-x-0 top-[4.25rem] z-[60] max-h-[calc(100dvh-4.25rem)] overflow-y-auto overscroll-contain touch-pan-y bg-white border-t border-slate-100 px-4 pt-4 pb-6 space-y-2 shadow-[0_24px_40px_-24px_rgba(7,27,73,0.3)]">
             {/* Mobile Header with Logo */}
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-200">
               <img 
@@ -227,7 +225,7 @@ export default function Navbar({ onOpenContact }) {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-colors ${
+                className={`relative z-[61] block min-h-11 touch-manipulation px-3 py-2.5 rounded-lg text-base font-semibold transition-colors ${
                   activeSection === link.id
                     ? 'text-white bg-[#0756D9]'
                     : 'text-slate-700 hover:text-[#0756D9] hover:bg-slate-50'
